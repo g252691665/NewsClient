@@ -9,6 +9,7 @@ import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.Window;
 
 public class MainActivity extends SlidingFragmentActivity {
 	private static final String FRAGMENT_LEFT_MENU = "fragmet_left_menu";
@@ -16,6 +17,7 @@ public class MainActivity extends SlidingFragmentActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 		
 		setBehindContentView(R.layout.left_menu); //…Ë÷√≤‡±ﬂ¿∏
