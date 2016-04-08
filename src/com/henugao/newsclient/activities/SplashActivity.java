@@ -3,12 +3,16 @@ package com.henugao.newsclient.activities;
 import com.henugao.newsclient.R;
 import com.henugao.newsclient.R.layout;
 import com.henugao.newsclient.R.menu;
+import com.henugao.newsclient.utils.PreUtils;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.Menu;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationSet;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
@@ -21,7 +25,6 @@ public class SplashActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-	
 		initUi();
 	}
 
@@ -53,7 +56,39 @@ public class SplashActivity extends Activity {
 		aa.setDuration(2000);
 		aa.setFillAfter(true);
 		as.addAnimation(aa);
+		as.setAnimationListener(new AnimationListener() {
+			
+			@Override
+			public void onAnimationStart(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			//动画执行结束
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				jumpNextPage();
+			}
+		});
 		ll_root.startAnimation(as); //开启动画
+	}
+	//跳转到下一个页面
+	public void jumpNextPage() {
+		//判断之前是不是进行过新手引导页
+		boolean userGuide = PreUtils.getBoolean(SplashActivity.this, "is_user_guide_show", false);
+		if(!userGuide) {
+			//跳转到新手引导页
+			startActivity(new Intent(SplashActivity.this,GuideActivity.class));
+		} else {
+			startActivity(new Intent(SplashActivity.this,MainActivity.class));
+		}
+		finish();
+		
 	}
 	
 
