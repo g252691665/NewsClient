@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.view.Gravity;
 import android.view.TextureView;
+import android.view.View;
 import android.widget.TextView;
 
+import com.henugao.newsclient.activities.MainActivity;
 import com.henugao.newsclient.base.BasePager;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 /**
  * 首页
@@ -27,7 +30,12 @@ public class HomePager extends BasePager{
 		textView.setTextColor(Color.RED);
 		textView.setTextSize(25);
 		textView.setGravity(Gravity.CENTER);
+		btnMenu.setVisibility(View.INVISIBLE);
+		setSlidingMenuEnable(false);
 		flContent.addView(textView);  //向framentlayout中添加视图
 	}
+	
+
+	
 
 }

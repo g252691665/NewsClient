@@ -27,6 +27,7 @@ public class SmartServicePager extends BasePager{
 		textView.setTextColor(Color.RED);
 		textView.setTextSize(25);
 		textView.setGravity(Gravity.CENTER);
+		setSlidingMenuEnable(true);
 		flContent.addView(textView);  //向framentlayout中添加视图
 	}
 
