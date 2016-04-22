@@ -69,23 +69,18 @@ public class ContentFragemnt extends BaseFragment {
 				switch (checkedId) {
 				case R.id.rb_home:
 					mViewPager.setCurrentItem(0,false); //去掉切换页面的动画
-					//mPagerList.get(0).initData();
 					break;
 				case R.id.rb_news:
 					mViewPager.setCurrentItem(1,false);
-					//mPagerList.get(1).initData();
 					break;
 				case R.id.rb_smart:
 					mViewPager.setCurrentItem(2,false);
-					//mPagerList.get(2).initData();
 					break;
 				case R.id.rb_gov:
 					mViewPager.setCurrentItem(3,false);
-					//mPagerList.get(3).initData();
 					break;
 				case R.id.rb_setting:
 					mViewPager.setCurrentItem(4,false);
-					//mPagerList.get(4).initData();
 					break;	
 				default:
 					break;

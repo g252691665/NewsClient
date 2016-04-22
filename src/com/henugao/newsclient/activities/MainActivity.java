@@ -7,6 +7,7 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Window;
@@ -23,7 +24,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		setBehindContentView(R.layout.left_menu); //设置侧边栏
 		SlidingMenu slidingMenu = getSlidingMenu();  //获取侧边栏对象
 		slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN); //设置全屏触摸
-		slidingMenu.setBehindOffset(200); //设置屏幕预留的宽度
+		slidingMenu.setBehindOffset(350); //设置屏幕预留的宽度
 		
 		initFragment();
 	}
@@ -41,6 +42,12 @@ public class MainActivity extends SlidingFragmentActivity {
 		transaction.commit();  //提交事务
 	
 		
+	}
+	
+	public LeftMenuFragment getLeftMenuFragment() {
+		FragmentManager fm  = getSupportFragmentManager();
+		LeftMenuFragment leftMenuFragment = (LeftMenuFragment) fm.findFragmentByTag(FRAGMENT_LEFT_MENU);
+		return leftMenuFragment;
 	}
 
 
