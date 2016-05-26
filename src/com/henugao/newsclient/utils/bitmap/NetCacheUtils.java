@@ -19,15 +19,15 @@ public class NetCacheUtils {
 	 * @author henugao
 	 *
 	 */
-	class BitmapTask extends AsyncTask<Params, Progress, Result> {
-
-		@Override
-		protected Result doInBackground(Params... params) {
-			// TODO Auto-generated method stub
-			return null;
-		}
+//	class BitmapTask extends AsyncTask<Params, Progress, Result> {
+//
+//		@Override
+//		protected Result doInBackground(Params... params) {
+//			// TODO Auto-generated method stub
+//			return null;
+//		}
 		
-		
-	}
+//		
+//	}
 
 }

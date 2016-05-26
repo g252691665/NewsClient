@@ -49,10 +49,6 @@ public class ContentFragemnt extends BaseFragment {
 		rgGroup.check(R.id.rb_home); //默认勾选首页
 		//初始化五个子页面
 		mPagerList = new ArrayList<BasePager>();
-//		for (int i = 0; i < 5; i++) {
-//			BasePager basePager = new BasePager(mActivity);
-//			mPagerList.add(basePager);
-//		}
 		mPagerList.add(new HomePager(mActivity));
 		mPagerList.add(new NewsCenterPager(mActivity));
 		mPagerList.add(new SmartServicePager(mActivity));
@@ -138,5 +134,12 @@ public class ContentFragemnt extends BaseFragment {
 		}
 	}
 	
+	/**
+	 * 获取新闻中心页面
+	 * @return
+	 */
+	public NewsCenterPager getNewsCenterPager() {
+		return (NewsCenterPager)mPagerList.get(1);
+	}
 
 }

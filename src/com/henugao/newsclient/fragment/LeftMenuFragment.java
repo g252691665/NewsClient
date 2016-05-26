@@ -3,8 +3,11 @@ package com.henugao.newsclient.fragment;
 import java.util.ArrayList;
 
 import com.henugao.newsclient.R;
+import com.henugao.newsclient.activities.MainActivity;
+import com.henugao.newsclient.base.impl.NewsCenterPager;
 import com.henugao.newsclient.domain.NewsData;
 import com.henugao.newsclient.domain.NewsData.NewsMenuData;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
@@ -47,11 +50,31 @@ public class LeftMenuFragment extends BaseFragment {
 				mCurrentPosition = position;
 				System.out.println("mCurrentPosition"+mCurrentPosition);
 				mMenuAdapter.notifyDataSetChanged();
+				setCurrentMenuDetailPager(position);
+				
+				toggleSlidingmenu();
 			}
 		});
 	
 	}
 	
+	/**
+	 * 切换slidingmenu的状态
+	 * @param b
+	 */
+	protected void toggleSlidingmenu() {
+		MainActivity mainUi = (MainActivity)mActivity;
+		SlidingMenu slidingMenu = mainUi.getSlidingMenu();
+		slidingMenu.toggle(); //切换slidingmenu的状态，显示时隐藏，隐藏时显示
+	}
+
+	//设置当前菜单详情页
+	public void setCurrentMenuDetailPager(int position) {
+		MainActivity mainUi = (MainActivity)mActivity;
+		ContentFragemnt contentFragment = mainUi.getContentFragment();  //获取主页面
+		NewsCenterPager newsCenterPager = contentFragment.getNewsCenterPager(); //获取新闻中心
+		newsCenterPager.setrCurrentMenuDetailPager(position); //设置菜单详情页
+	}
 	//设置网络数据
 	public void setMenuData(NewsData data) {
 		System.out.println("侧边栏拿到数据："+data);

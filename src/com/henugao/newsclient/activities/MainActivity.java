@@ -44,10 +44,18 @@ public class MainActivity extends SlidingFragmentActivity {
 		
 	}
 	
+	//获取侧边栏的fragment
 	public LeftMenuFragment getLeftMenuFragment() {
 		FragmentManager fm  = getSupportFragmentManager();
 		LeftMenuFragment leftMenuFragment = (LeftMenuFragment) fm.findFragmentByTag(FRAGMENT_LEFT_MENU);
 		return leftMenuFragment;
+	}
+	
+	//获取主页面的fragement
+	public ContentFragemnt getContentFragment() {
+		FragmentManager fm  = getSupportFragmentManager();
+		ContentFragemnt contentFragemnt= (ContentFragemnt) fm.findFragmentByTag(FRAGMENT_CONTENT);
+		return contentFragemnt;
 	}
 
 

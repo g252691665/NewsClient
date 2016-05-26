@@ -22,6 +22,11 @@ public class NoScrollViewPager  extends ViewPager{
 		// TODO Auto-generated constructor stub
 	}
 
+	//表示事件是否拦截，false表示不拦截
+	@Override
+	public boolean onInterceptTouchEvent(MotionEvent arg0) {
+		return false;
+	}
 	/**
 	 * 重写onTouchEvent什么都不用做 
 	 */

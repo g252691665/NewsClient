@@ -7,6 +7,7 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -36,8 +37,27 @@ public class BasePager {
 		tvTitle = (TextView) mRootView.findViewById(R.id.tv_title);
 		flContent = (FrameLayout)mRootView.findViewById(R.id.fl_content);
 		btnMenu = (ImageButton)mRootView.findViewById(R.id.btn_menu);
+		//点击菜单栏按钮事件
+		btnMenu.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				toggleSlidingmenu();
+			}
+		});
 	}
 	
+	
+	/**
+	 * 切换slidingmenu的状态
+	 * @param b
+	 */
+	protected void toggleSlidingmenu() {
+		MainActivity mainUi = (MainActivity)mActivity;
+		SlidingMenu slidingMenu = mainUi.getSlidingMenu();
+		slidingMenu.toggle(); //切换slidingmenu的状态，显示时隐藏，隐藏时显示
+	}
+
 	/**
 	 * 初始化数据
 	 */
